@@ -58,6 +58,25 @@ function displayCategories(categories) {
   });
 }
 
+// Filtrage des travaux de la galerie par catégories
+async function filteringWorks(allWorks) {
+  const buttons = document.querySelectorAll(".filters-container button");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const buttonId = event.target.id;
+      console.log(buttonId);
+      gallery.innerHTML = "";
+      const worksByCategory = buttonId ? allWorks.filter((work) => work.categoryId == buttonId) : allWorks;
+
+      // Affichage des travaux filtrés ou de tous les travaux si aucun filtre n'est sélectionné
+      worksByCategory.forEach((work) => {
+        createWork(work); // Appel de la fonction "createWork"
+      });
+    });
+  });
+}
+
 async function init() {
   const works = await getWorks();
   const categories = await getCategories();
