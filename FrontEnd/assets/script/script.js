@@ -37,8 +37,35 @@ function createWork(work) {
   gallery.appendChild(figure);
 }
 
+// Récupération des catégories pour les filtres
+async function getCategories() {
+  try {
+    const response = await fetch("http://localhost:5678/api/categories");
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Affichage des filtres récupérés
+function displayCategories(categories) {
+  categories.forEach((category) => {
+    const button = document.createElement("button");
+    button.textContent = category.name;
+    button.id = category.id;
+    console.log(filters);
+    filters.appendChild(button);
+  });
+}
+
 async function init() {
   const works = await getWorks();
+  const categories = await getCategories();
   console.log(works);
   displayWorks(works);
+  console.log(categories);
+  displayCategories(categories);
+  filteringWorks(works);
 }
+
+init();
