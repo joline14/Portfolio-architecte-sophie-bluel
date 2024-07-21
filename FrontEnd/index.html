@@ -80,5 +80,49 @@
         </ul>
       </nav>
     </footer>
+    <!-- Modale -->
+    <!-- Modale page 1 -->
+    <div class="modal-container">
+      <div class="modal">
+        <i class="fa-solid fa-xmark"></i>
+        <h3>Galerie photo</h3>
+        <div class="container-gallery">
+          <div class="modal-gallery"></div>
+        </div>
+        <div class="container-button">
+          <button class="btnAddPhoto">Ajouter une photo</button>
+        </div>
+      </div>
+      <!-- Modale page 2 -->
+      <div class="modal-2">
+        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-xmark"></i>
+        <h4>Ajout photo</h4>
+        <form id="form-addphoto">
+          <div class="addPhoto-container">
+            <i class="fa-regular fa-image"></i>
+            <label class="addPhoto-file" for="file"> + Ajouter photo </label>
+            <p>jpg, png : 4mo max</p>
+            <input type="file" name="image" id="file" accept="image.jpg, image/png" required="" />
+            <img src="#" alt="" id="image" />
+          </div>
+          <div class="title-category">
+            <label for="title">Titre</label>
+            <input type="text" name="title" id="title" required="" />
+            <label for="categorySelect">Catégorie</label>
+            <select name="category" id="category" required="">
+              <option value="0"></option>
+              <option value="1">Objets</option>
+              <option value="2">Appartements</option>
+              <option value="3">Hôtels & restaurants</option>
+            </select>
+            <p id="error-select">Erreur : Aucune option n'a été sélectionnée.</p>
+          </div>
+          <div class="container-button">
+            <button type="submit" class="btnSubmitPhoto">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
