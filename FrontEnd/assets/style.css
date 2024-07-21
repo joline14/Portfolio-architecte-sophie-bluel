@@ -335,6 +335,16 @@ input[type="submit"] {
   text-align: center;
   border-radius: 60px;
 }
+input[type="submit"]:active {
+  background-color: #0e2f28;
+}
+
+.password {
+  font-weight: 700;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
 
 footer nav ul {
   display: flex;
