@@ -19,10 +19,10 @@ async function login() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data = await response.json();
+    const responseData = await response.json();
 
-    if (data && data.token) {
-      localStorage.setItem("token", data.token);
+    if (responseData && responseData.token) {
+      localStorage.setItem("token", responseData.token);
       window.location.href = "./index.html";
     } else {
       throw new Error("No token received");

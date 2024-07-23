@@ -13,6 +13,17 @@ const previewTextImg = document.querySelector(".addPhoto-container p");
 const errorSelect = document.getElementById("error-select");
 const works = []; // Liste des travaux
 
+// Récupère les travaux depuis l'API
+
+async function getWorks() {
+  try {
+    const response = await fetch("http://localhost:5678/api/works");
+    return await response.json();
+  } catch (error) {
+    console.error("Erreur lors de la récupération des travaux:", error);
+  }
+}
+
 // Ouvre la modale
 
 function openModal() {
@@ -195,19 +206,19 @@ function validateForm() {
 // Initialise les événements et affiche la galerie
 
 function initModal() {
-  // Ajoute un événement pour ouvrir la modale au clic sur le lien "modifier"
+  // événement pour ouvrir la modale au clic sur le lien "modifier"
   const modify = document.querySelector(".modification p");
   modify.addEventListener("click", openModal);
 
-  // Ajoute des événements pour fermer la modale au clic sur les boutons de fermeture
+  // événements pour fermer la modale au clic sur les boutons de fermeture
   const closeButtons = document.querySelectorAll(".fa-xmark");
   closeButtons.forEach((btn) => btn.addEventListener("click", closeModal));
 
-  // Ajoute un événement pour afficher la première page de la modale au clic sur la flèche
+  // événement pour afficher la première page de la modale au clic sur la flèche
   const backToFirstPageButton = document.querySelector(".fa-arrow-left");
   backToFirstPageButton.addEventListener("click", showFirstPage);
 
-  // Ajoute un événement pour afficher la deuxième page de la modale au clic sur le bouton "Ajouter une photo"
+  // événement pour afficher la deuxième page de la modale au clic sur le bouton "Ajouter une photo"
   const addPhotoButton = document.querySelector(".btnAddPhoto");
   addPhotoButton.addEventListener("click", showSecondPage);
 
@@ -221,14 +232,3 @@ function initModal() {
 
 // Initialise la modale après le chargement du DOM
 document.addEventListener("DOMContentLoaded", initModal);
-
-// Récupère les travaux depuis l'API
-
-async function getWorks() {
-  try {
-    const response = await fetch("http://localhost:5678/api/works");
-    return await response.json();
-  } catch (error) {
-    console.error("Erreur lors de la récupération des travaux:", error);
-  }
-}

@@ -59,7 +59,7 @@ function displayCategories(categories) {
 }
 
 // Filtrage des travaux de la galerie par catégories
-async function filteringWorks(allWorks) {
+function filteringWorks(allWorks) {
   const buttons = document.querySelectorAll(".filters-container button");
 
   buttons.forEach((button) => {
@@ -67,7 +67,14 @@ async function filteringWorks(allWorks) {
       const buttonId = event.target.id;
       console.log(buttonId);
       gallery.innerHTML = "";
-      const worksByCategory = buttonId ? allWorks.filter((work) => work.categoryId == buttonId) : allWorks;
+
+      let worksByCategory;
+
+      if (buttonId) {
+        worksByCategory = allWorks.filter((work) => work.categoryId == buttonId);
+      } else {
+        worksByCategory = allWorks;
+      }
 
       // Affichage des travaux filtrés ou de tous les travaux si aucun filtre n'est sélectionné
       worksByCategory.forEach((work) => {
@@ -100,6 +107,7 @@ async function init() {
   console.log(categories);
   displayCategories(categories);
   filteringWorks(works);
+  initModal();
 }
 
 init();
