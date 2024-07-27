@@ -26,6 +26,8 @@ async function displayWorks(works) {
   });
 }
 
+// Création des Work
+
 function createWork(work) {
   const figure = document.createElement("figure");
   const img = document.createElement("img");
@@ -53,7 +55,6 @@ function displayCategories(categories) {
     const button = document.createElement("button");
     button.textContent = category.name;
     button.id = category.id;
-    console.log(filters);
     filters.appendChild(button);
   });
 }
@@ -62,6 +63,7 @@ function displayCategories(categories) {
 function filteringWorks(allWorks) {
   const buttons = document.querySelectorAll(".filters-container button");
 
+  // ajoute un écouteur d'événements pour le clic de chaque bouton
   buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
       const buttonId = event.target.id;
@@ -69,10 +71,11 @@ function filteringWorks(allWorks) {
       gallery.innerHTML = "";
 
       let worksByCategory;
-
+      // Si un ID de bouton est présent, filtre les travaux par catégorie
       if (buttonId) {
         worksByCategory = allWorks.filter((work) => work.categoryId == buttonId);
       } else {
+        // Si aucun bouton n'est sélectionné, affiche tous les travaux
         worksByCategory = allWorks;
       }
 
@@ -87,7 +90,7 @@ function filteringWorks(allWorks) {
 async function init() {
   // Mode admin - quand l'utilisateur est connecté
   if (token) {
-    // Si la connexion a bien été établie et qu'on a récupéré le token
+    // Si la connexion et token récupéré
     logout.textContent = "logout"; // Changement du texte "login" en "logout" dans la barre de navigation du header
     document.querySelector(".edition-mode").style.display = "block"; // Apparition de la bannière "mode édition"
     document.querySelector(".filters-container").style.display = "none"; // Disparition des filtres
@@ -102,12 +105,9 @@ async function init() {
   }
   const works = await getWorks();
   const categories = await getCategories();
-  console.log(works);
   displayWorks(works);
-  console.log(categories);
   displayCategories(categories);
   filteringWorks(works);
-  initModal();
 }
 
 init();

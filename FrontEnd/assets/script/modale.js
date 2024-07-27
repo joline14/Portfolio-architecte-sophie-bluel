@@ -27,20 +27,20 @@ async function getWorks() {
 // Ouvre la modale
 
 function openModal() {
-  // Affiche la modale en changeant son style display à "flex"
+  // Affiche la modale
   modalContainer.style.display = "flex";
 }
 
 // Ferme la modale et réinitialise le formulaire
 
 function closeModal() {
-  // Cache la modale en changeant son style display à "none"
+  // Cache la modale
   modalContainer.style.display = "none";
   // Réinitialise le formulaire d'ajout de photo
   resetForm();
 }
 
-// Réinitialise le formulaire d'ajout de photo
+// Réinitialisation formulaire d'ajout de photo
 
 function resetForm() {
   // Réinitialise tous les champs du formulaire
@@ -55,24 +55,21 @@ function resetForm() {
   errorSelect.style.display = "none";
 }
 
-// Affiche la première page de la modale (galerie)
+// Affichage  firstPage de la modale (galerie)
 
 function showFirstPage() {
-  // Affiche la première page de la modale
-  firstPage.style.display = "flex";
-  // Cache la deuxième page de la modale
-  secondPage.style.display = "none";
+  firstPage.style.display = "flex"; // Affiche la première page
+  secondPage.style.display = "none"; // Cache la deuxième page
 }
 
-// Affiche la deuxième page de la modale (formulaire d'ajout de photo)
+// Affichage secondPage de la modale (formulaire d'ajout de photo)
+
 function showSecondPage() {
-  // Cache la première page de la modale
-  firstPage.style.display = "none";
-  // Affiche la deuxième page de la modale
-  secondPage.style.display = "flex";
+  firstPage.style.display = "none"; // Cache la première page
+  secondPage.style.display = "flex"; // Affiche la deuxième page
 }
 
-// Affiche la galerie dans la modale
+// Affichage galerie dans la modale
 
 async function displayGalleryModal() {
   // Vide le contenu actuel de la galerie
@@ -100,7 +97,7 @@ async function displayGalleryModal() {
   });
 }
 
-// Prévisualise l'image lors de l'ajout d'un nouveau projet
+// Prévisualisation image lors de l'ajout d'un nouveau projet
 
 function previewNewWork() {
   // Ajoute un événement de changement pour l'input de fichier
