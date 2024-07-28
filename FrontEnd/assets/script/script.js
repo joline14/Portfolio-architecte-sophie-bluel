@@ -63,7 +63,7 @@ function displayCategories(categories) {
 function filteringWorks(allWorks) {
   const buttons = document.querySelectorAll(".filters-container button");
 
-  // ajoute un écouteur d'événements pour le clic de chaque bouton
+  // écouteur d'événements pour le clic de chaque bouton
   buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
       const buttonId = event.target.id;
@@ -78,7 +78,6 @@ function filteringWorks(allWorks) {
         // Si aucun bouton n'est sélectionné, affiche tous les travaux
         worksByCategory = allWorks;
       }
-
       // Affichage des travaux filtrés ou de tous les travaux si aucun filtre n'est sélectionné
       worksByCategory.forEach((work) => {
         createWork(work); // Appel de la fonction "createWork"

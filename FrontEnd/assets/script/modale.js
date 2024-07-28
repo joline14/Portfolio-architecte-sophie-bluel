@@ -176,8 +176,8 @@ async function deleteWork(workId) {
 
 function validateForm() {
   // Ajoute un événement de soumission pour le formulaire
-  formAddPhoto.addEventListener("submit", (e) => {
-    e.preventDefault();
+  formAddPhoto.addEventListener("submit", (even) => {
+    even.preventDefault();
     let isValid = true;
 
     // Vérifie si tous les champs nécessaires sont remplis
@@ -219,9 +219,9 @@ function initModal() {
   const addPhotoButton = document.querySelector(".btnAddPhoto");
   addPhotoButton.addEventListener("click", showSecondPage);
 
-  // Prépare l'événement pour prévisualiser l'image sélectionnée
+  // prévisualisation de l'image sélectionnée
   previewNewWork();
-  // Prépare l'événement pour valider le formulaire
+  // validation le formulaire
   validateForm();
   // Affiche la galerie de la modale
   displayGalleryModal();

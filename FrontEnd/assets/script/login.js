@@ -3,6 +3,7 @@ const form = document.querySelector("form");
 const email = document.querySelector("form #email");
 const password = document.querySelector("form #password");
 
+// gère connexion utilisateur
 async function login() {
   try {
     // Prépare les données de connexion
@@ -39,6 +40,7 @@ async function login() {
   }
 }
 
+// validation côté client du formulaire de connexion
 function init() {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
