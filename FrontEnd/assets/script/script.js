@@ -18,7 +18,7 @@ async function getWorks() {
 
 // Affichage des travaux récupérés
 
-async function displayWorks(works) {
+function displayWorks(works) {
   gallery.innerHTML = "";
   works.forEach((work) => {
     // Pour chaque "work" ...
